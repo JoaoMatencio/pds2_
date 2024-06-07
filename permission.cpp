@@ -3,7 +3,7 @@
 #include "area.hpp"
 #include "date.hpp"
 
-Permission::Permission() acesso(false), monitoramento("") {}
+Permission::Permission() : acesso(false), monitoramento("") {}
 
 
 alterarAtributos(){
