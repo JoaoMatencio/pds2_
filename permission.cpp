@@ -3,9 +3,8 @@
 #include "area.hpp"
 #include "date.hpp"
 
-Permission() {
-  std::cout << "Construtor utilizado" << std::endl;
-}
+Permission::Permission() acesso(false), monitoramento("") {}
+
 
 alterarAtributos(){
 
