@@ -1,21 +1,24 @@
 #ifndef CADMIN
 #define CADMIN
 
+#include <map>
+#include <string>
+#include <iostream>
 
-class administrador {
+class Administrador {
 
     int id;
     std::string nome;
-    std::vector<user*> users;
+    std::map<std::string, user*> users;
 
     protected:
 
     public:
     int get_id();
     std::string get_nome();
-    void set_vector(user& user);
-    void criarListaUsers;
-    user* pesquisarUsers;
+    void incluiUsuario(user& user);
+    void criarListaUsers();
+    void pesquisarUsers();
     void acessarMetodosClasses(); //Qual a funcionalidade desse método?
 
 
