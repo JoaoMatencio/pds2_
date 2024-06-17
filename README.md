@@ -1,5 +1,6 @@
 # <p style="text-align: center;"> Sistema de Automação Residencial com Possibilidade de Implementação de IA</p>
 
+
 ## Descrição 
 O programa aqui implementado, tem como objetivo permitir ou restringir o acesso de usuários cadastrados previamente as áreas de uma residência.
 
