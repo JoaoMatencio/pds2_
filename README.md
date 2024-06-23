@@ -12,6 +12,9 @@ O programa aqui implementado tem como objetivo permitir ou restringir o acesso d
 ### Classe `User`:
 A classe `User` tem como objetivo representar os indivíduos autorizados a acessar áreas específicas dentro de um sistema de automação residencial. Cada usuário é identificado por um número único de identificação (userID) e um nome associado.
 
+### Classe `Area`:
+A classe `Area` é encarregada de gerenciar as regiões informadas pelo usuário. Essa classe foi criada para controle dos lugares a partir do usuário, o qual, por meio dela, pode adicionar novas áreas, verificar as áreas adicionadas, alterar nomes e excluir áreas conforme necessário. Para cada área, é necessário fornecer um nome e uma identificação única, que é uma sequência de números.
+
 ### Classe `Permissão`:
 A classe `Permissão` será responsável por receber dados do usuário, como dia, horário e local, e determinar se o usuário pode ou não entrar no local especificado. Esta classe será capaz de verificar as condições de permissão com base nas informações fornecidas e retornará uma resposta indicando se o acesso é permitido ou negado. A classe Permissão ainda terá a função de registrar e gerenciar essas permissões, garantindo que as regras de acesso sejam rigorosamente seguidas.
 
@@ -21,5 +24,4 @@ A classe `Data` é projetada para organizar os dias da semana e os horários de 
 ### Classe `Status`:
 A classe `Status` é responsável por monitorar e registrar o estado da porta e os logs de eventos relacionados ao seu status. Ela oferece métodos para abrir e fechar a porta, além de escrever, ler e modificar os logs de eventos. A classe `Status` garante que todas as operações realizadas na porta sejam registradas de forma detalhada, proporcionando uma maneira eficiente de rastrear e verificar o histórico de acessos e alterações no estado da porta.
 
-### Classe `Area`:
-A classe Area é encarregada de gerenciar as regiões informadas pelo usuário. Essa classe foi criada para controle dos lugares a partir do usuário, o qual, por meio dela, pode adicionar novas áreas, verificar as áreas adicionadas, alterar nomes e excluir áreas conforme necessário. Para cada área, é necessário fornecer um nome e uma identificação única, que é uma sequência de números.
+
