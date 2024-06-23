@@ -18,6 +18,8 @@ A classe `Permissão` será responsável por receber dados do usuário, como dia
 ### Classe `Data`:
 A classe `Data` é projetada para organizar os dias da semana e os horários de maneira estruturada, associando-os eficientemente com outras TADs do projeto. Os dias da semana são representados por um número inteiro de 1 a 7, correspondendo a cada dia de segunda-feira a domingo. Cada dia é dividido em quatro períodos - madrugada, manhã, tarde e noite - representados por um array de 4 bits, onde cada bit indica se o período está ativo (1) ou inativo (0). Os dados são armazenados em um vetor chamado schedule, permitindo uma fácil manipulação e consulta dos horários para cada dia. Esta organização oferece benefícios de eficiência, flexibilidade e uma representação compacta, facilitando a integração com outras partes do projeto.
 
-### Classe `Status`
+### Classe `Status`:
 A classe `Status` é responsável por monitorar e registrar o estado da porta e os logs de eventos relacionados ao seu status. Ela oferece métodos para abrir e fechar a porta, além de escrever, ler e modificar os logs de eventos. A classe `Status` garante que todas as operações realizadas na porta sejam registradas de forma detalhada, proporcionando uma maneira eficiente de rastrear e verificar o histórico de acessos e alterações no estado da porta.
 
+### Classe `Area`:
+A classe Area é encarregada de gerenciar as regiões informadas pelo usuário. Essa classe foi criada para controle dos lugares a partir do usuário, o qual, por meio dela, pode adicionar novas áreas, verificar as áreas adicionadas, alterar nomes e excluir áreas conforme necessário. Para cada área, é necessário fornecer um nome e uma identificação única, que é uma sequência de números.
