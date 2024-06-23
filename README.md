@@ -7,7 +7,8 @@ O programa aqui implementado tem como objetivo permitir ou restringir o acesso d
 
 
 ### Classe `Administrador`: 
-À classe `Administrador` caberá a tarefa de incluir usuários num container tipo MAP, cujas chaves serão os nomes dos usuários e os valores serão objetos do tipo user.  Ela ainda terá como função realizar a pesquisa de usuários, ......
+À classe `Administrador` caberá a tarefa de incluir usuários num container tipo MAP, cujas chaves serão os nomes dos usuários e os valores serão objetos do tipo user (que abrangem suas classes colaboradoras `User`, `Area`, `Permissão`, `Data`.
+Uma vez que essa classe terá privilégios acima daqueles de um usuário normal, ela poderá realizar pesquisas por usuários a fim de que se possa realizar alterações mais sensíveis tais como autorizar o acesso de usuários a determinadas áreas.
 
 ### Classe `User`:
 A classe `User` tem como objetivo representar os indivíduos autorizados a acessar áreas específicas dentro de um sistema de automação residencial. Cada usuário é identificado por um número único de identificação (userID) e um nome associado.
