@@ -18,3 +18,5 @@ A classe TAD Data é projetada para organizar os dias da semana e os horários d
 ### Classe `Status`
 A classe `Status` é responsável por monitorar e registrar o estado da porta e os logs de eventos relacionados ao seu status. Ela oferece métodos para abrir e fechar a porta, além de escrever, ler e modificar os logs de eventos. A classe `Status` garante que todas as operações realizadas na porta sejam registradas de forma detalhada, proporcionando uma maneira eficiente de rastrear e verificar o histórico de acessos e alterações no estado da porta.
 
+### Classe User:
+A classe Usuário tem como objetivo representar os indivíduos autorizados a acessar áreas específicas dentro de um sistema de automação residencial. Cada usuário é identificado por um número único de identificação (userID) e um nome associado.
