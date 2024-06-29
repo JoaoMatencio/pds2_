@@ -15,10 +15,6 @@ private:
   std::string monitoramento, cap;
 public:
   Permission();
-  area = Area.areaID;
-  dia = Schedule.WeekDay;
-  periodo = Schedule.PeriodDay;
-  cap = User.capacity;
   bool acessoCedido(bool acesso, int area, int dia, int periodo, std::string cap, std::string *monitoramento);
 }
 
