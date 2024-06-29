@@ -15,7 +15,7 @@ private:
   std::string monitoramento, cap;
 public:
   Permission();
-  bool acessoCedido(bool acesso, int area, int dia, int periodo, std::string cap, std::string *monitoramento);
+  bool acessoCedido(bool, int, int, int, std::string, std::string);
 }
 
 //pensei na string capacity como um atributo da classe user, que quando for criar um usuario, associá-lo a uma capacidade de acesso a
