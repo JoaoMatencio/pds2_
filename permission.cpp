@@ -1,7 +1,4 @@
 #include "permission.hpp"
-#include "user.hpp"
-#include "area.hpp"
-#include "date.hpp"
 
 Permission::Permission() : acesso(0), monitoramento("") {}
 
