@@ -4,14 +4,22 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include "user.hpp"
+#include "area.hpp"
+#include "date.hpp"
 
 class Permission{
 private:
   bool acesso;
-  std::string monitoramento;
+  int area, dia, periodo;
+  std::string monitoramento, cap;
 public:
   Permission();
-  bool acessoCedido(int, int, int, std::string);
+  area = Area.areaid;
+  dia = Schedule.WeekDay;
+  periodo = Schedule.PeriodDay;
+  cap = User.capacity;
+  bool acessoCedido(int area, int dia, int periodo, std::string cap, std::string *monitoramento);
 }
 
 //pensei na string capacity como um atributo da classe user, que quando for criar um usuario, associá-lo a uma capacidade de acesso a
