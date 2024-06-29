@@ -3,10 +3,6 @@
 Permission::Permission() : acesso(0), monitoramento("") {}
 
 bool permission::acessoCedido(bool acesso, int areaID, int WeekDay, int PeriodDay, std::string capacity, std::string *monitoramento){
-  areaID = Area.areaID;
-  WeekDay = Schedule.WeekDay;
-  PeriodDay = Schedule.PeriodDay;
-  capacity = User.capacity;
   
   while(acesso == 0){
     switch(capacity){
