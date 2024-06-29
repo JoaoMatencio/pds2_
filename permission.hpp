@@ -11,9 +11,9 @@ private:
   std::string monitoramento;
 public:
   Permission();
-  alterarAtributos();
-  bool acessoCedido(bool, int, int, std::string, std::string);
-  std::string monitamentoPermission(std:: string, int, int, std::string, std::string);
+  bool acessoCedido(int, int, int, std::string);
 }
 
+//pensei na string capacity como um atributo da classe user, que quando for criar um usuario, associá-lo a uma capacidade de acesso a
+//casa. Ja areaID, recebeu valores arbitrarios, que cabe ao administrador do programa os associar a areas da casa. 
 #endif
