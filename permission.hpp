@@ -11,11 +11,14 @@
 class Permission{
 private:
   bool acesso;
-  int area, dia, periodo;
   std::string monitoramento, cap;
 public:
   Permission();
-  bool acessoCedido(bool, int, int, int, std::string, std::string);
+  int area = Area.areaID;
+  int dia = Schedule.WeekDay;
+  int periodo = Schedule.PeriodDay;
+  std::string cap = User.capacity;
+  bool acessoCedido(bool acesso, int area, int dia, int periodo, std::string capacity, std::string& monitoramento);
 }
 
 //pensei na string capacity como um atributo da classe user, que quando for criar um usuario, associá-lo a uma capacidade de acesso a
