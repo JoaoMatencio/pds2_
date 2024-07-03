@@ -1,142 +1,87 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include "area.hpp"
 
-class System {
-public:
-    void addArea(const std::string& name, int id) {
-        areas.push_back({name, id});
-    }
 
-    void updateArea(int id, const std::string& newName) {
-        for (auto& area : areas) {
-            if (area.id == id) {
-                area.name = newName;
-                std::cout << "Área atualizada com sucesso.\n";
-                return;
-            }
-        }
-        std::cout << "Área não encontrada.\n";
-    }
+std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
 
-    void deleteArea(int id) {
-        for (auto it = areas.begin(); it != areas.end(); ++it) {
-            if (it->id == id) {
-                areas.erase(it);
-                std::cout << "Área excluída com sucesso.\n";
-                return;
-            }
-        }
-        std::cout << "Área não encontrada.\n";
-    }
-
-    void deleteAllAreas() {
-        areas.clear();
-        std::cout << "Todas as áreas foram excluídas.\n";
-    }
-
-    void listAreas() const {
-        if (areas.empty()) {
-            std::cout << "Nenhuma área encontrada.\n";
-        } else {
-            for (const auto& area : areas) {
-                std::cout << "Nome: " << area.name << ", ID: " << area.id << '\n';
-            }
-        }
-    }
-
-private:
-    struct Area {
-        std::string name;
-        int id;
-    };
-
-    std::vector<Area> areas;
-};
-
-int main() {
-    System system;
-    int opcao;
-
-    do {
-        std::cout << "Escolha uma opção:" << std::endl;
-        std::cout << "1. Criar área" << std::endl;
-        std::cout << "2. Alterar área" << std::endl;
-        std::cout << "3. Excluir área" << std::endl;
-        std::cout << "4. Consultar áreas" << std::endl;
-        std::cout << "5. Sair" << std::endl;
-
-        std::cin >> opcao;
-
-        while (opcao < 1 || opcao > 5) {
-            std::cout << "Opção inválida. Tente novamente: ";
-            std::cin >> opcao;
-        }
-
-        switch (opcao) {
-            case 1: {
-                int numAreas;
-                std::cout << "Adicione o numero de áreas desejado: ";
-                std::cin >> numAreas;
-
-                for (int i = 0; i < numAreas; ++i) {
-                    std::string areaName;
-                    int areaID;
-                    std::cout << "Adicione o nome da " << i + 1 << "ª área: ";
-                    std::cin >> areaName;
-                    std::cout << "Adicione o ID da " << i + 1 << "ª área: ";
-                    std::cin >> areaID;
-                    system.addArea(areaName, areaID);
-                }
-                break;
-            }
-
-            case 2: {
-                int areaID;
-                std::string newName;
-                std::cout << "Digite o ID da área a ser alterada: ";
-                std::cin >> areaID;
-                std::cout << "Digite o novo nome da área: ";
-                std::cin >> newName;
-                system.updateArea(areaID, newName);
-                break;
-            }
-
-            case 3: {
-                int opcaoExcluir;
-                std::cout << "Escolha uma opção:" << std::endl;
-                std::cout << "1.Excluir uma área" << std::endl;
-                std::cout << "2. Excluir todas as áreas"<< std::endl;
-                std::cin >> opcaoExcluir;
-
-                if (opcaoExcluir == 1) {
-                    int areaID;
-                    std::cout << "Digite o ID da área a ser excluída: ";
-                    std::cin >> areaID;
-                    system.deleteArea(areaID);
-                } else if (opcaoExcluir == 2) {
-                    system.deleteAllAreas();
-                } else {
-                    std::cout << "Opção inválida.\n";
-                }
-                break;
-            }
-
-            case 4: {
-                system.listAreas();
-                break;
-            }
-
-            case 5: {
-                std::cout << "Saindo do programa"<< std::endl;
-                break;
-            }
-
-            default:
-                std::cout << "Opção inválida.\n";
-                break;
-        }
-    } while (opcao != 5);
-
-    return 0;
+void Area::incluirAreaVector(){
+    
+    std::string novaArea;
+    std::cout << "Áreas já criadas: " << std::endl;
+    imprimirNomeAreasVector();
+    std::cout << "Insira o nome da nova área: " << std::endl;
+    std::getline(std::cin, novaArea);
+    Area::nomeArea.push_back(novaArea);
 }
+
+void Area::removerAreaVector(){
+    int idArea;
+    std::cout << "Escolha a ID da área que deseja remover: " << std::endl;
+    imprimirNomeAreasVector();
+    std::cin >> idArea;
+    Area::nomeArea.erase(Area::nomeArea.begin()-1);
+}
+
+void Area::imprimirNomeAreasVector(){
+    
+    int qteAreas = nomeArea.size();
+    for(int i = 0; i < qteAreas; i++){
+        std::cout << "Área " << i + 1 << ": " << Area::nomeArea[i] << "." << std::endl;
+    }
+}
+
+void Area::editarAreaVector(){
+    
+    int idArea;
+    std::string confirmaNome;
+    std::cout << "Qual área deseja editar? " << std::endl;
+    imprimirNomeAreasVector();
+    std::cin >> idArea;
+    std::cout << "Digite o novo nome para a área: " << std::endl;
+    std::getline(std::cin, Area::nomeArea[idArea]);
+    std::cout << "Confirma o novo nome da área? " << Area::nomeArea[idArea] << std::endl;
+    std::cout << "Digite S parar Sim ou N para Não:" << std::endl;
+    std::cin >> confirmaNome;
+    
+    while (confirmaNome == "N"){
+        std::cout << "Digite o novo nome para a área: " << std::endl;
+        std::getline(std::cin, Area::nomeArea[idArea]);
+        std::cout << "Confirma o novo nome da área? " << Area::nomeArea[idArea] << std::endl;
+        std::cout << "Digite S parar Sim ou N para Não:" << std::endl;
+        std::cin >> confirmaNome;
+    }
+    
+    std::cout << "Novo nome salvo com sucesso.";
+}
+
+std::string Area::atribuiAreaMap(int selecao){
+    return Area::nomeArea[selecao - 1];
+}
+
+void Area::set_area(std::string area, Permission& permissao){
+    areasPermissoes.insert(std::pair<std::string, Permission&> (area, permissao));
+}
+
+void Area::imprimirAreas(){
+    std::map<std::string, Permission&>::iterator it;
+    int idArea = 1;
+    for(it = areasPermissoes.begin(); it != areasPermissoes.end(); it++){
+        std::cout << idArea << " - " << it -> first << std::endl;
+        idArea += 1;
+    }
+}
+
+void Area::editarAutorizacoesArea(){
+    std::map<std::string, Permission&>::iterator it;
+    int areaSelecionada = 0;
+    imprimirAreas();
+    std::cin >> areaSelecionada;
+    std::advance(it, areaSelecionada - 1);
+    it -> second.alterarAutorizacao();
+
+
+}
+
+std::map<std::string, Permission&>& Area::get_areasPermissoes(){
+    return this -> areasPermissoes;
+}
+
