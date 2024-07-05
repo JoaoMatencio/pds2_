@@ -29,6 +29,11 @@ void Area::imprimirNomeAreasVector(){
     }
 }
 
+
+std::string Area::retornaNomeAreaVector(int posicaoSelecionada){
+    return Area::nomeArea[posicaoSelecionada];
+}
+
 void Area::editarAreaVector(){
     
     int idArea;
@@ -57,8 +62,8 @@ std::string Area::atribuiAreaMap(int selecao){
     return Area::nomeArea[selecao - 1];
 }
 
-void Area::set_area(std::string area, Permission& permissao){
-    areasPermissoes.insert(std::pair<std::string, Permission&> (area, permissao));
+void Area::set_area(std::string nomeArea, Permission& permissao){
+    areasPermissoes.insert(std::pair<std::string, Permission&> (nomeArea, permissao));
 }
 
 void Area::imprimirAreas(){

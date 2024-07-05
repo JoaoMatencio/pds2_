@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <list>
 #include <vector>
 
 #include "date.hpp"
@@ -15,7 +14,7 @@ class Area {
     private:
 
         std::map<std::string, Permission&> areasPermissoes;
-        static std::vector<std::string> nomeArea; 
+        static std::vector<std::string> nomeArea;
         
     public:
         void incluirAreaVector();

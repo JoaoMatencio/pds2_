@@ -16,11 +16,12 @@ private:
     Area _area;
 
 public:
-    User& criarUsuario(std::string, std::string, std::string, Permission&);
+    void criarUsuario(std::string, std::string);
+    void inserirPermissoes();
     std::string get_Usuario();
     std::string get_Senha();
     Area& get_Area();
-    User& inserirPermissoes();
+    void set_Nome(std::string);
 
 };
 
