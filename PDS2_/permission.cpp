@@ -7,7 +7,7 @@ class User;
 void Permission::inserirAutorizacao(Date& d){
 
   std::map<int, Date&>::iterator it;
-                                                      
+  d.configuraAutorizacao();                                                    
   it = autorizacaoSemanal.find(d.get_aC().diaSemana);
   
   if(it == autorizacaoSemanal.end()){

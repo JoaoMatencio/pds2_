@@ -16,17 +16,16 @@ int main(){
     
     Administrator admin;
     std::map<std::string, User&> usuariosConfigurados;
-    std::string nomeUsuario = " ";
-    std::string senhaUsuario = " ";
-
-
 
     while(1){
 
-        std::cout << "Entre com o seu nome de usuário: " << std::endl;
+        std::string nomeUsuario = " ";
+        std::string senhaUsuario = " ";
+
+        std::cout << "Entre com o nome de usuário que deseja logar: " << std::endl;
         std::getline(std::cin, nomeUsuario);
         
-        std::cout << "Digite a sua senha: " << std::endl;
+        std::cout << "Digite a sua senha para logar: " << std::endl;
         std::cin >> senhaUsuario;
 
         if (nomeUsuario == admin.get_Nome()){
@@ -50,12 +49,12 @@ int main(){
                             std::map<std::string, User&>::iterator it;
 
                             std::cout << "Criar novo usuário." << std::endl;
-                            std::cout << "Insira o nome do usuário: " << std::endl;
+                            std::cout << "Insira o nome do novo usuário: " << std::endl;
                             std::cin.ignore();
                             std::getline(std::cin, nomeUsuario);
                             it = usuariosConfigurados.find(nomeUsuario);
                             if (it == usuariosConfigurados.end()){
-                                std::cout << "Digite a senha para o usuário " << nomeUsuario << ": " << std::endl;
+                                std::cout << "Digite a senha para o novo usuário " << nomeUsuario << ": " << std::endl;
                                 std::getline(std::cin, senhaUsuario);
                                 usuario.criarUsuario(nomeUsuario, senhaUsuario);
                                 usuario.inserirPermissoes();
@@ -63,7 +62,8 @@ int main(){
                             } else {
                                 std::cout << "Nome de usuário já cadastrado." << std::endl;
                             }
-                            
+                            std::cin.ignore();
+                            break;
                         }
                         
                         case 2: {
@@ -83,10 +83,12 @@ int main(){
                                       << "2 - Adicionar nova área para o usuário.\n"
                                       << "3 - Editar permissão de área cadastrada para o usuário.\n"
                                       << "4 - Remover o usuário.\n";
+
                             std::cin >> idOpcao1;
+
                             switch (idOpcao1){
                                 case 1: {
-                                    std::string nomeUsuario;
+                                    std::string nomeUsuario = " ";
 
                                     std::cout << "Nome atual do usuário: " << it -> second.get_Nome() << std::endl;
                                     std::cout << "Digite o novo nome para o usuário: " << std::endl;
@@ -132,6 +134,7 @@ int main(){
                         case 4: {
                             Area a;
                             a.editarAreaVector();
+                            break;
                         }
                         case 5: {
                             std::string novoNome;
@@ -144,7 +147,8 @@ int main(){
                             admin.set_Nome(novoNome);
                             std::cout << "Insira a senha atual do administrador: " << std::endl;
                             std::getline(std::cin, senhaAtual);
-                            admin.set_Senha(senhaAtual, novaSenha); 
+                            admin.set_Senha(senhaAtual, novaSenha);
+                            break; 
                         }
                     }
                 } else {
