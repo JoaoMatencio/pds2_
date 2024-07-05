@@ -23,6 +23,7 @@ int main(){
 
 
     while(1){
+
         std::cout << "Entre com o seu nome de usuário: " << std::endl;
         std::getline(std::cin, nomeUsuario);
         
@@ -37,13 +38,10 @@ int main(){
                         << "2 - Editar usuário já existente.\n"
                         << "3 - Adicionar nova área.\n"
                         << "4 - Editar área existente.\n"
-                        << "5 - Alterar nome do Administrador.\n"
-                        << "6 - Alterar senha do Administrador.\n";
+                        << "5 - Alterar credenciais do Administrador.\n";
                         
                     std::cin >> idOpcao0;
                     
-                    
-
                     switch (idOpcao0){
                         
                         case 1: {
@@ -61,6 +59,7 @@ int main(){
                                 std::getline(std::cin, senhaUsuario);
                                 usuario.criarUsuario(nomeUsuario, senhaUsuario);
                                 usuario.inserirPermissoes();
+                                usuariosConfigurados.insert(std::pair<std::string, User&> (usuario.get_Nome(), usuario));
                             } else {
                                 std::cout << "Nome de usuário já cadastrado." << std::endl;
                             }
@@ -89,10 +88,11 @@ int main(){
                                 case 1: {
                                     std::string nomeUsuario;
 
-                                    std::cout << "Nome atual do usuário: " << it -> second.get_Usuario() << std::endl;
+                                    std::cout << "Nome atual do usuário: " << it -> second.get_Nome() << std::endl;
                                     std::cout << "Digite o novo nome para o usuário: " << std::endl;
                                     std::getline(std::cin, nomeUsuario);
                                     it -> second.set_Nome(nomeUsuario);
+                                    break;
                                 }
                                 case 2: {
                                     std::string nomeArea;
@@ -104,19 +104,58 @@ int main(){
                                     std::cin >> posicaoSelecionada;
                                     Permission p;
                                     it -> second.get_Area().set_area(it -> second.get_Area().retornaNomeAreaVector(posicaoSelecionada -1), p);
+                                    break;
                                 }
-
+                                case 3: {
+                                    int areaSelecionada;
+                                    it -> second.get_Area().imprimirAreas();
+                                    std::cout << "Seleciona a área que deseja editar as permissões: " << std::endl;
+                                    std::cin >> areaSelecionada;
+                                    it -> second.get_Area().editarAutorizacoesArea(areaSelecionada);
+                                    break;
+                                }
+                                case 4: {
+                                    usuariosConfigurados.erase(it);
+                                    break;
+                                }
                             }
-                            
+                            break;
                         }
-                        case 3:
+                        case 3: {
+                            Area a;
+                            std::string novaArea = " ";
+                            std::cout << "Adicionar nova área: " << std::endl; //Adiciona nova área ao vector Area::nomeArea;
+                            std::getline(std::cin, novaArea);
+                            a.incluirAreaVector(novaArea);
+                            break;
+                        }
+                        case 4: {
+                            Area a;
+                            a.editarAreaVector();
+                        }
+                        case 5: {
+                            std::string novoNome;
+                            std::string senhaAtual;
+                            std::string novaSenha;
+                            std::cout << "Alterar nome do Administrador." << std::endl;
+                            std::cout << "Nome atual: " << admin.get_Nome();
+                            std::cout << "Insira o novo nome do Administrador: " << std::endl;
+                            std::getline(std::cin, novoNome);
+                            admin.set_Nome(novoNome);
+                            std::cout << "Insira a senha atual do administrador: " << std::endl;
+                            std::getline(std::cin, senhaAtual);
+                            admin.set_Senha(senhaAtual, novaSenha); 
+                        }
                     }
+                } else {
+
+                    std::cout << "Senha do administrador incorreta." << std::endl;
+
+                }
+
             } else {
-                break;
-            }
-
-        } else {
-
+                //Inicio da implementação do código para conferencia de
+                //autorizacoes e acessos efetivos.
         }
 
         }

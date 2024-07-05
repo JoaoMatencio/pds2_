@@ -1,15 +1,14 @@
 #include "area.hpp"
+#include "user.hpp"
 
 
 std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
 
-void Area::incluirAreaVector(){
-    
-    std::string novaArea;
+void Area::incluirAreaVector(std::string novaArea){
+
     std::cout << "Áreas já criadas: " << std::endl;
     imprimirNomeAreasVector();
     std::cout << "Insira o nome da nova área: " << std::endl;
-    std::getline(std::cin, novaArea);
     Area::nomeArea.push_back(novaArea);
 }
 
@@ -75,18 +74,16 @@ void Area::imprimirAreas(){
     }
 }
 
-void Area::editarAutorizacoesArea(){
+void Area::editarAutorizacoesArea(int areaSelecionada){
     std::map<std::string, Permission&>::iterator it;
-    int areaSelecionada = 0;
     imprimirAreas();
-    std::cin >> areaSelecionada;
     std::advance(it, areaSelecionada - 1);
     it -> second.alterarAutorizacao();
-
-
 }
 
 std::map<std::string, Permission&>& Area::get_areasPermissoes(){
     return this -> areasPermissoes;
 }
+
+
 

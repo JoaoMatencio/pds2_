@@ -27,7 +27,7 @@ void User::criarUsuario(std::string nomeUsuario, std::string senhaUsuario){
     this -> senha = senhaUsuario;
 }
 
-std::string User::get_Usuario(){
+std::string User::get_Nome(){
     return this -> usuario;
 }
 

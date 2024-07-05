@@ -19,33 +19,42 @@ void Administrator::set_Nome(std::string novoNome){
     this -> nomeAdmin = novoNome;
 }
 
-void Administrator::set_Senha(std::string novaSenha){
-    this -> senhaAdmin = novaSenha;
-}
+void Administrator::set_Senha(std::string senhaAtual, std::string novaSenha){
+    if (senhaAtual == senhaAdmin){
 
-void Administrator::inserirUsuario(User& user){
-    usuariosPermissoes.insert(std::pair<std::string, Area&> (user.get_Usuario(), user.get_Area()));
-}
+        std::cout << "Insira a nova senha: " << std::endl;
+        std::getline(std::cin, novaSenha);
+        this -> senhaAdmin = novaSenha;
+        std::cout << "Senha alterada com sucesso." << std::endl;
 
-void Administrator::imprimirUsuarios(){
-    int idUsuario = 1;
-    std::map<std::string, Area&>::iterator it;
-    for(it = usuariosPermissoes.begin(); it != usuariosPermissoes.end(); it++){
-        std::cout << idUsuario << " - " << it -> first << std::endl;
-        idUsuario += 1;
+    } else {
+
+        int contador = 0;
+        int tentativas = 4;
+
+        while (contador < 3){
+            
+            contador += 1;
+            tentativas = tentativas - contador;
+
+            std::cout << "Senha incorreta.\n"
+                      << "Tentativas restantes: " << tentativas << ".\n" 
+                      <<  "Digite novamente a senha atual do administrador: " << std::endl;
+            
+            std::getline(std::cin, senhaAtual);
+
+            if (senhaAtual == senhaAdmin){
+                std::cout << "Insira a nova senha: " << std::endl;
+                std::getline(std::cin, novaSenha);
+                this -> senhaAdmin = novaSenha;
+                std::cout << "Senha alterada com sucesso." << std::endl;
+                contador = 3;
+            }
+            
+        }
     }
+    
 }
 
-void Administrator::editarPermissoes(){
-    std::map<std::string, Area&>::iterator it;
-    int idUsuario = 0;
-    std::string nomeUsuario;
-
-    std::cout << "Escolha um usuário para editar as permissões: " << std::endl;
-    imprimirUsuarios();
-    std::cin >> idUsuario;
-    std::advance(it, idUsuario - 1);
-    it -> second.editarAutorizacoesArea();
-}
 
 

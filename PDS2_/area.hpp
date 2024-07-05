@@ -17,15 +17,17 @@ class Area {
         static std::vector<std::string> nomeArea;
         
     public:
-        void incluirAreaVector();
+        
+        void incluirAreaVector(std::string);
         void removerAreaVector();
         void editarAreaVector();
         void imprimirNomeAreasVector();
+        std::string retornaNomeAreaVector(int);
         std::string atribuiAreaMap(int);
         void set_area(std::string, Permission&);
         
         void imprimirAreas();
-        void editarAutorizacoesArea();
+        void editarAutorizacoesArea(int);
         std::map<std::string, Permission&>& get_areasPermissoes();
 };
 

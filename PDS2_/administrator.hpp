@@ -12,7 +12,6 @@ class Administrator {
 
     std::string nomeAdmin;
     std::string senhaAdmin;
-    std::map<std::string, Area&> usuariosPermissoes;
 
     public:
 
@@ -21,7 +20,7 @@ class Administrator {
     void editarPermissoes();
     std::string get_Senha();
     std::string get_Nome();
-    void set_Senha(std::string);
+    void set_Senha(std::string, std::string);
     void set_Nome(std::string);
     
 };

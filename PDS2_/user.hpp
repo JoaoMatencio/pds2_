@@ -18,7 +18,7 @@ private:
 public:
     void criarUsuario(std::string, std::string);
     void inserirPermissoes();
-    std::string get_Usuario();
+    std::string get_Nome();
     std::string get_Senha();
     Area& get_Area();
     void set_Nome(std::string);
