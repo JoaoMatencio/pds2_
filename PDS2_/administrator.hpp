@@ -4,9 +4,7 @@
 #include <map>
 #include <string>
 #include <iostream>
-#include "user.hpp"
-#include "area.hpp"
-#include "permission.hpp"
+
 
 class Administrator {
 
@@ -14,10 +12,8 @@ class Administrator {
     std::string senhaAdmin;
 
     public:
-
-    void inserirUsuario(User&);
-    void imprimirUsuarios();
-    void editarPermissoes();
+    
+    Administrator();
     std::string get_Senha();
     std::string get_Nome();
     void set_Senha(std::string, std::string);

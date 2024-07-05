@@ -1,8 +1,9 @@
 #include "user.hpp"
-#include "area.hpp"
-#include "permission.hpp"
 
-
+User::User(){
+    usuario = " ";
+    senha = " ";
+}
 
 void User::inserirPermissoes(){
     

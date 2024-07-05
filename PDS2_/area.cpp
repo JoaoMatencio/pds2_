@@ -1,5 +1,4 @@
 #include "area.hpp"
-#include "user.hpp"
 
 
 std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
@@ -81,7 +80,7 @@ void Area::editarAutorizacoesArea(int areaSelecionada){
     it -> second.alterarAutorizacao();
 }
 
-std::map<std::string, Permission&>& Area::get_areasPermissoes(){
+std::map<std::string, Permission&> Area::get_areasPermissoes(){
     return this -> areasPermissoes;
 }
 

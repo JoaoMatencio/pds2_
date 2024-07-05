@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 typedef struct periodoAutorizado {
     bool madrugada = false; //00:00 às 05:59
     bool manha = false;     //06:00 às 11:59

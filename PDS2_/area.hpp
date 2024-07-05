@@ -1,12 +1,9 @@
 #ifndef AREA_HPP
 #define AREA_HPP
 
-#include <iostream>
 #include <string>
-#include <map>
 #include <vector>
 
-#include "date.hpp"
 #include "permission.hpp"
 
 class Area {
@@ -28,7 +25,7 @@ class Area {
         
         void imprimirAreas();
         void editarAutorizacoesArea(int);
-        std::map<std::string, Permission&>& get_areasPermissoes();
+        std::map<std::string, Permission&> get_areasPermissoes();
 };
 
 #endif

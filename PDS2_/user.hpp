@@ -2,11 +2,7 @@
 #define USUARIO_HPP
 
 #include <string>
-
 #include "area.hpp"
-#include "permission.hpp"
-#include "date.hpp"
-
 
 class User {
 private:
@@ -16,6 +12,7 @@ private:
     Area _area;
 
 public:
+    User();
     void criarUsuario(std::string, std::string);
     void inserirPermissoes();
     std::string get_Nome();

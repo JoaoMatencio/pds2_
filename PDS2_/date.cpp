@@ -1,9 +1,5 @@
 #include "date.hpp"
 
-/*O construtor Date() atribui à struct autorizacaoCompleta as autorizações 
- *para cada período de um dia conforme especificado no código.
-*/ 
-
 Date::Date(){
 
     std::cout << "Selecione um dia da semana:\n"

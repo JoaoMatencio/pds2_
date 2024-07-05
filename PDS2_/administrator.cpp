@@ -1,5 +1,4 @@
 #include "administrator.hpp"
-#include "user.hpp"
 
 
 Administrator::Administrator(){

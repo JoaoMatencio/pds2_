@@ -5,7 +5,6 @@
 #include <map>
 #include "date.hpp"
 
-
 class Permission{
 
   private:
@@ -20,7 +19,7 @@ class Permission{
     void alterarAutorizacao();
     void imprimirAutorizacoes();
     std::string retornaAutorizacao(bool);
-    std::string autorizaAcesso(User&);
+    void autorizaAcesso();
 };
 
 #endif

@@ -1,7 +1,7 @@
-#include "permission.hpp"
-#include "user.hpp"
 #include <ctime>
-#include <vector>
+#include "permission.hpp"
+
+class User;
 
 
 void Permission::inserirAutorizacao(Date& d){
@@ -85,7 +85,7 @@ std::string Permission::retornaAutorizacao(bool autorizacao){
   }
 }
 
-std::string Permission::autorizaAcesso(User& usuario){
+void Permission::autorizaAcesso(){
 
     int diaSemana = 0;
     std::string mensagem = " ";
