@@ -7,7 +7,6 @@
 User& User::inserirPermissoes(){
     
     Permission p;
-    Date d;
     int selecao;
     std::string nomeUser;
     std::string senhaUser;
@@ -24,7 +23,9 @@ User& User::inserirPermissoes(){
     _area.imprimirNomeAreasVector();
     
     std::cin >> selecao;
-    std::cout << "Selecione o dia que deseja configurar as permissões para o usuário: " << std::endl;
+
+    Date d;
+
     p.inserirAutorizacao(d);
 
     _area.set_area(_area.atribuiAreaMap(selecao), p);

@@ -7,21 +7,11 @@
 void Permission::inserirAutorizacao(Date& d){
 
   std::map<int, Date&>::iterator it;
-  
-  int numeroEscolhido;
-  std::cout << "Selecione o dia da semana que deseja alterar:\n"
-              "1 = Domingo \n"
-              "2 = Segunda-feira \n"
-              "3 = Terça-feira \n"
-              "4 = Quarta-feira \n"
-              "5 = Quinta-feira \n"
-              "6 = Sexta-feira \n"
-              "7 = Sábado \n";
-  std::cin >> numeroEscolhido;                                                      
-  it = autorizacaoSemanal.find(numeroEscolhido);
+                                                      
+  it = autorizacaoSemanal.find(d.get_aC() -> diaSemana);
   
   if(it == autorizacaoSemanal.end()){
-    autorizacaoSemanal.insert(std::pair<int, Date&> (numeroEscolhido, d));
+    autorizacaoSemanal.insert(std::pair<int, Date&> (d.get_aC() -> diaSemana, d));
   } else {
     std::cout << "Autorização já inserida.\n"
                 "Escolha a opção \"Modificar autorização.\"" << std::endl; 

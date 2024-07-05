@@ -12,7 +12,7 @@ std::string Administrator::get_Nome(){
 }
 
 std::string Administrator::get_Senha(){
-    return nomeAdmin;
+    return senhaAdmin;
 }
 
 void Administrator::set_Nome(std::string novoNome){

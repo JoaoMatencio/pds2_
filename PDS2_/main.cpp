@@ -24,17 +24,20 @@ int main(){
                         << "2 - Editar usuário já existente.\n"
                         << "3 - Remover usuário.\n"
                         << "4 - Adicionar nova área.\n"
-                        << "5 - Editar área existente.\n";
+                        << "5 - Editar área existente.\n"
+                        << "6 - Alterar nome do Administrador.\n"
+                        << "7 - Alterar senha do Administrador.\n";
                         
                     std::cin >> opcao;
                     
-                    User usuario;
+                    
 
                     switch (opcao){
                         
-                        case 1:
+                        case 1: {
+                            User usuario;
                             std::cout << "Criar novo usuário." << std::endl;
-                            usuario.inserirPermissoes();
+                            usuario.inserirPermissoes();}
                         case 2:
                         case 3:
                     }
