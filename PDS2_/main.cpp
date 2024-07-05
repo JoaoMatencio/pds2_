@@ -51,13 +51,12 @@ int main(){
 
                             std::cout << "Criar novo usuário." << std::endl;
                             std::cout << "Insira o nome do usuário: " << std::endl;
-                            std::getline(std::cin, nomeUsuario);
                             std::cin.ignore();
+                            std::getline(std::cin, nomeUsuario);
                             it = usuariosConfigurados.find(nomeUsuario);
                             if (it == usuariosConfigurados.end()){
                                 std::cout << "Digite a senha para o usuário " << nomeUsuario << ": " << std::endl;
                                 std::getline(std::cin, senhaUsuario);
-                                std::cin.ignore();
                                 usuario.criarUsuario(nomeUsuario, senhaUsuario);
                                 usuario.inserirPermissoes();
                                 usuariosConfigurados.insert(std::pair<std::string, User&> (usuario.get_Nome(), usuario));
