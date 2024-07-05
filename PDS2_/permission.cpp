@@ -1,4 +1,7 @@
 #include "permission.hpp"
+#include "user.hpp"
+#include <ctime>
+#include <vector>
 
 
 void Permission::inserirAutorizacao(Date& d){
@@ -13,7 +16,8 @@ void Permission::inserirAutorizacao(Date& d){
               "4 = Quarta-feira \n"
               "5 = Quinta-feira \n"
               "6 = Sexta-feira \n"
-              "7 = Sábado \n";                                                      
+              "7 = Sábado \n";
+  std::cin >> numeroEscolhido;                                                      
   it = autorizacaoSemanal.find(numeroEscolhido);
   
   if(it == autorizacaoSemanal.end()){
@@ -87,6 +91,39 @@ std::string Permission::retornaAutorizacao(bool autorizacao){
     case true:
       return "Autorizado.";
     case false:
-      return "Proibido.";
+      return "Não autorizado";
   }
+}
+
+std::string Permission::autorizaAcesso(User& usuario){
+
+    int diaSemana = 0;
+    std::string mensagem = " ";
+    std::time_t horaSistema = std::time(nullptr);
+    std::tm* horaLocal = std::localtime(&horaSistema);
+
+    diaSemana = horaLocal -> tm_wday;
+
+    std::map<int, Date&>::iterator it;
+
+    it = autorizacaoSemanal.find(diaSemana + 1);
+    
+    if(horaLocal -> tm_hour >= 00 && horaLocal -> tm_hour < 06) {
+      mensagem = retornaAutorizacao(it -> second.get_aC() -> periodo.madrugada);
+      std::cout << mensagem << std::endl;
+
+    } else if (horaLocal -> tm_hour >= 06 && horaLocal -> tm_hour < 12) {
+      mensagem = retornaAutorizacao(it -> second.get_aC() -> periodo.manha);
+      std::cout << mensagem << std::endl;
+
+    } else if (horaLocal -> tm_hour >= 12 && horaLocal -> tm_hour < 18) {
+      mensagem = retornaAutorizacao(it -> second.get_aC() -> periodo.madrugada);
+      std::cout << mensagem << std::endl;
+
+    } else if (horaLocal -> tm_hour >= 18 && horaLocal -> tm_hour < 00) {
+      mensagem = retornaAutorizacao(it -> second.get_aC() -> periodo.madrugada);
+      std::cout << mensagem << std::endl;
+
+    }
+
 }

@@ -18,6 +18,7 @@ class Permission{
     void alterarAutorizacao();
     void imprimirAutorizacoes();
     std::string retornaAutorizacao(bool);
+    std::string autorizaAcesso(User&);
 };
 
 #endif
