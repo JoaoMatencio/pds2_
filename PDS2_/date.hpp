@@ -24,12 +24,12 @@ class Date {
     
         //Struct que contem os períodos de autorização
         //para um determinado dia da semana.
-        autorizacaoCompleta _Ac;
+        autorizacaoCompleta _aC;
 
     public:
         Date();
-        autorizacaoCompleta& getAc();
-        void setAc(int, int);
+        autorizacaoCompleta& get_aC();
+        void set_aC(int, int);
         void configuraAutorizacao();
 };
 

@@ -21,7 +21,7 @@ class Area {
         void imprimirNomeAreasVector();
         std::string retornaNomeAreaVector(int);
         std::string atribuiAreaMap(int);
-        void setArea(std::string, Permission&);
+        void set_area(std::string, Permission&);
         
         void imprimirAreas();
         void editarAutorizacoesArea(int);

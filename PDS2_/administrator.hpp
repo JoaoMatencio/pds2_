@@ -14,10 +14,10 @@ class Administrator {
     public:
     
     Administrator();
-    std::string getSenha();
-    std::string getNome();
-    void setSenha(std::string, std::string);
-    void setNome(std::string);
+    std::string get_Senha();
+    std::string get_Nome();
+    void set_Senha(std::string, std::string);
+    void set_Nome(std::string);
     
 };
 
