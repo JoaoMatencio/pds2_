@@ -58,3 +58,14 @@ int getOptionUser() {
     std::cin.ignore();
     return idOpcao0;
 }
+
+bool stopOrRepeat() {
+    std::cout << "Usuário não cadastrado." << std::endl;
+    std::cout << "Deseja tentar novamente? (s/n)" << std::endl;
+    char resposta;
+    std::cin >> resposta;
+    if (resposta == 'n') {
+        return true;
+    }
+    return false;
+}

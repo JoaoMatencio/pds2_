@@ -3,6 +3,8 @@
 #include "user.hpp"
 
 
+
+
 int main() {
     bool stop = false;
 
@@ -20,13 +22,7 @@ int main() {
         }
         
         else {
-            std::cout << "Usuário não cadastrado." << std::endl;
-            std::cout << "Deseja tentar novamente? (s/n)" << std::endl;
-            char resposta;
-            std::cin >> resposta;
-            if (resposta == 'n') {
-                stop = true;
-            }
+            stop = stopOrRepeat();
         }
     }
     return 0;
