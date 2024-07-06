@@ -2,20 +2,21 @@
 #include "login.hpp"
 #include "user.hpp"
 
+
 int main() {
     bool stop = false;
-    std::map<std::string, User> usuariosConfigurados;
 
     while (!stop) {
         std::string nomeUsuario = getUser();
         std::string senhaUsuario = getSenha();
+        std::map<std::string, User> usuariosConfigurados;
         if (isAdmin(nomeUsuario, senhaUsuario)) {
             Administrator admin;
             admin.switchCaseAdmin(getOption(), usuariosConfigurados);
         } 
-        else if (usuariosConfigurados.find(nomeUsuario) != usuariosConfigurados.end()) 
-        {   
-            // Implementação do código para conferencia de autorizações e acessos efetivos.
+        else if (isUser(nomeUsuario, senhaUsuario)) {
+            User user;
+            user.switchCaseUser(getOptionUser());
         }
         else {
             std::cout << "Usuário não cadastrado." << std::endl;
