@@ -18,8 +18,15 @@ int main() {
             User user;
             user.switchCaseUser(getOptionUser());
         }
+        
         else {
             std::cout << "Usuário não cadastrado." << std::endl;
+            std::cout << "Deseja tentar novamente? (s/n)" << std::endl;
+            char resposta;
+            std::cin >> resposta;
+            if (resposta == 'n') {
+                stop = true;
+            }
         }
     }
     return 0;
