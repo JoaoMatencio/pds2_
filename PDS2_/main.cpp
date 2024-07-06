@@ -12,12 +12,6 @@ void imprimirUsuariosCadastrados(std::map<std::string, User&>& usuariosConfigura
     }
 }
 
-std :: string getNomeUsuario(std::map<std::string, User&>& usuariosConfigurados, int idUsuario){
-    std::map<std::string, User&>::iterator it = usuariosConfigurados.begin();
-    std::advance(it, idUsuario - 1);
-    return it -> first;
-}
-
 std::string getUser() {
     std::string nomeUsuario = " ";
     std::cout << "Entre com o nome de usuário que deseja logar: " << std::endl;
@@ -67,7 +61,8 @@ int getOptions_2(){
     return idOpcao1;
 }
 
-void criarNovoUsuario(std::map<std::string, User&>& usuariosConfigurados) {
+void criarNovoUsuario() {
+    std::map<std::string, User&> usuariosConfigurados;
     User usuario;
     std::string nomeUsuario = " ";
     std::string senhaUsuario = " ";
@@ -91,12 +86,11 @@ void criarNovoUsuario(std::map<std::string, User&>& usuariosConfigurados) {
 }
 
 void editarUsuario() {
+    std::map<std::string, User&> usuariosConfigurados;
     int idOpcao1 = getOptions_2();
     std::string nomeUsuario;
     std::map<std::string, User&>::iterator it;
     int idUsuario = 0;
-    std::map<std::string, User&> usuariosConfigurados;
- 
 
     std::cout << "Editar usuário já existente." << std::endl;
     imprimirUsuariosCadastrados(usuariosConfigurados);
@@ -194,7 +188,7 @@ int main(){
             int idOpcao0 = getOption();
             switch (idOpcao0){
                 case 1: {
-                    criarNovoUsuario(usuariosConfigurados);
+                    criarNovoUsuario();
                     break;
                 }
                 case 2: {
