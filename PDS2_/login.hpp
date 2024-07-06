@@ -6,6 +6,7 @@
 std::string getUser();
 std::string getSenha();
 bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario);
+bool isUser(const std::string& nomeUsuario, const std::string& senhaUsuario);
 int getOption();
 
 #endif // LOGIN_HPP

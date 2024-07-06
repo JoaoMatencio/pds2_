@@ -43,8 +43,6 @@ Area& User::get_Area(){
 }
 
 void User::set_Nome(std::string nomeUsuario){
-    this -> usuario = nomeUsuario;
+    usuario = nomeUsuario;
 }
-
-
 

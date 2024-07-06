@@ -1,5 +1,6 @@
 #include "login.hpp"
 #include "administrator.hpp"
+#include "user.hpp"
 #include <iostream>
 
 std::string getUser() {
@@ -25,6 +26,14 @@ bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario) {
         std::cout << "Senha do administrador incorreta." << std::endl;
         return false;
     }
+}
+
+bool isUser(std::string nomeUsuario, std::string senhaUsuario){
+    User user;
+    if (user.get_Nome() == nomeUsuario && user.get_Senha() == senhaUsuario){
+        return true;
+    }
+    return false;
 }
 
 int getOption() {
