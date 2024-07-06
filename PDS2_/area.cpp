@@ -84,5 +84,15 @@ std::map<std::string, Permission&> Area::get_areasPermissoes(){
     return this -> areasPermissoes;
 }
 
+void adicionarNovaArea() {
+    Area a;
+    std::string novaArea;
+    std::cout << "Adicionar nova área: " << std::endl;
+    std::getline(std::cin, novaArea);
+    a.incluirAreaVector(novaArea);
+}
 
-
+void editarArea() {
+    Area a;
+    a.editarAreaVector();
+}
