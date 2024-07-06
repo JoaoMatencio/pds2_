@@ -19,7 +19,7 @@ void User::inserirPermissoes(){
 
     p.inserirAutorizacao(d);
 
-    _area.set_area(_area.atribuiAreaMap(selecao), p); //Insere os parâmetros configurados no map areasPermissoes.
+    _area.setArea(_area.atribuiAreaMap(selecao), p); //Insere os parâmetros configurados no map areasPermissoes.
 
 }
 
@@ -28,19 +28,19 @@ void User::criarUsuario(std::string nomeUsuario, std::string senhaUsuario){
     this -> senha = senhaUsuario;
 }
 
-std::string User::get_Nome(){
+std::string User::getNome(){
     return this -> usuario;
 }
 
-std::string User::get_Senha(){
+std::string User::getSenha(){
     return this -> senha;
 }
 
-Area& User::get_Area(){
+Area& User::getArea(){
     return _area;
 }
 
-void User::set_Nome(std::string nomeUsuario){
+void User::setNome(std::string nomeUsuario){
     this -> usuario = nomeUsuario;
 }
 

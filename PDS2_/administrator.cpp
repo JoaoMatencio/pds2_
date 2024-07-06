@@ -6,19 +6,19 @@ Administrator::Administrator(){
     senhaAdmin = "admin";
 }
 
-std::string Administrator::get_Nome(){
+std::string Administrator::getNome(){
     return nomeAdmin;
 }
 
-std::string Administrator::get_Senha(){
+std::string Administrator::getSenha(){
     return senhaAdmin;
 }
 
-void Administrator::set_Nome(std::string novoNome){
+void Administrator::setNome(std::string novoNome){
     this -> nomeAdmin = novoNome;
 }
 
-void Administrator::set_Senha(std::string senhaAtual, std::string novaSenha){
+void Administrator::setSenha(std::string senhaAtual, std::string novaSenha){
     if (senhaAtual == senhaAdmin){
 
         std::cout << "Insira a nova senha: " << std::endl;

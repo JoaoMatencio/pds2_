@@ -15,10 +15,10 @@ public:
     User();
     void criarUsuario(std::string, std::string);
     void inserirPermissoes();
-    std::string get_Nome();
-    std::string get_Senha();
-    Area& get_Area();
-    void set_Nome(std::string);
+    std::string getNome();
+    std::string getSenha();
+    Area& getArea();
+    void setNome(std::string);
 
 };
 
