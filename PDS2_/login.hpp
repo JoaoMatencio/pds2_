@@ -9,5 +9,6 @@ bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario);
 bool isUser(const std::string& nomeUsuario, const std::string& senhaUsuario);
 int getOption();
 int getOptionUser();
+bool stopOrRepeat();
 
 #endif // LOGIN_HPP
