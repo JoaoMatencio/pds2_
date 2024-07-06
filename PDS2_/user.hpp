@@ -19,7 +19,7 @@ public:
     std::string get_Senha();
     Area& get_Area();
     void set_Nome(std::string);
-
+    void switchCaseUser(int);
 };
 
 #endif // USUARIO_HPP

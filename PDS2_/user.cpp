@@ -46,3 +46,26 @@ void User::set_Nome(std::string nomeUsuario){
     usuario = nomeUsuario;
 }
 
+void User::switchCaseUser(int idOpcao0){
+    std::string senha;
+    Area _area;
+    switch (idOpcao0) {
+        case 1: {
+            std::cout << "Áreas permitidas: " << std::endl;
+            _area.imprimirNomeAreasVector();
+            break;
+        }
+        case 2: {
+            std::string novaSenha;
+            std::cout << "Digite a nova senha: " << std::endl;
+            std::cin >> novaSenha;
+            std::cin.ignore();
+            senha = novaSenha;
+            break;
+        }
+        default: {
+            std::cout << "Opção inválida." << std::endl;
+            break;
+        }
+    }
+}

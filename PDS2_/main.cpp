@@ -15,7 +15,8 @@ int main() {
             admin.switchCaseAdmin(getOption(), usuariosConfigurados);
         } 
         else if (isUser(nomeUsuario, senhaUsuario)) {
-            std::cout << "Usuário cadastrado." << std::endl;
+            User user;
+            user.switchCaseUser(getOptionUser());
         }
         else {
             std::cout << "Usuário não cadastrado." << std::endl;
