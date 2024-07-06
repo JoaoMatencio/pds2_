@@ -73,6 +73,7 @@ void Administrator::criarNovoUsuario(std::map<std::string, User>& usuariosConfig
         usuario.criarUsuario(nomeUsuario, senhaUsuario);
         usuario.inserirPermissoes();
         usuariosConfigurados.insert({usuario.get_Nome(), usuario});
+        std::cin.ignore();
     } else {
         std::cout << "Nome de usuário já cadastrado." << std::endl;
     }

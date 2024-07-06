@@ -7,13 +7,19 @@
 
 int main() {
     bool stop = false;
+    
+    std::map<std::string, User> usuariosConfigurados;
+    Administrator admin;
 
     while (!stop) {
-        std::string nomeUsuario = getUser();
-        std::string senhaUsuario = getSenha();
-        std::map<std::string, User> usuariosConfigurados;
+        std::string nomeUsuario = " ";
+        std::string senhaUsuario = " ";
+        nomeUsuario = getUser();
+        senhaUsuario = getSenha();
+        
+
         if (isAdmin(nomeUsuario, senhaUsuario)) {
-            Administrator admin;
+            
             admin.switchCaseAdmin(getOption(), usuariosConfigurados);
         } 
         else if (isUser(nomeUsuario, senhaUsuario)) {
