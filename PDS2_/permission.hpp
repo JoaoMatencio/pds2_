@@ -22,4 +22,4 @@ class Permission{
     void autorizaAcesso();
 };
 
-#endif
+#endif // PERMISSION_HPP

@@ -27,4 +27,4 @@ public:
     std::map<std::string, Permission&> get_areasPermissoes();
 };
 
-#endif
+#endif // AREA_HPP
