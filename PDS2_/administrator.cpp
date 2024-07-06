@@ -65,7 +65,6 @@ void Administrator::criarNovoUsuario(std::map<std::string, User>& usuariosConfig
 
     std::cout << "Criar novo usuário." << std::endl;
     std::cout << "Insira o nome do novo usuário: " << std::endl;
-    std::cin.ignore();
     std::getline(std::cin, nomeUsuario);
 
     if (usuariosConfigurados.find(nomeUsuario) == usuariosConfigurados.end()) {

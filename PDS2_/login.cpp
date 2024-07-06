@@ -28,7 +28,7 @@ bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario) {
     }
 }
 
-bool isUser(std::string nomeUsuario, std::string senhaUsuario){
+bool isUser(const std::string& nomeUsuario, const std::string& senhaUsuario){
     User user;
     if (user.get_Nome() == nomeUsuario && user.get_Senha() == senhaUsuario){
         return true;
