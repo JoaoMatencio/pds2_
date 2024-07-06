@@ -1,24 +1,27 @@
-#ifndef ADMIN_HPP
-#define ADMIN_HPP
+#ifndef ADMINISTRATOR_HPP
+#define ADMINISTRATOR_HPP
 
-#include <map>
-#include <string>
+#include "user.hpp"
 #include <iostream>
-
+#include <map>
 
 class Administrator {
-
+private:
     std::string nomeAdmin;
     std::string senhaAdmin;
 
-    public:
-    
+public:
     Administrator();
-    std::string get_Senha();
     std::string get_Nome();
-    void set_Senha(std::string, std::string);
-    void set_Nome(std::string);
-    
+    std::string get_Senha();
+    void set_Nome(std::string novoNome);
+    void set_Senha(std::string senhaAtual, std::string novaSenha);
+    void imprimirUsuariosCadastrados(std::map<std::string, User>& usuariosConfigurados);
+    void criarNovoUsuario(std::map<std::string, User>& usuariosConfigurados);
+    int getOptions_2();
+    void editarUsuario(std::map<std::string, User>& usuariosConfigurados);
+    void alterarCredenciaisAdmin();
+    void switchCaseAdmin(int idOpcao0, std::map<std::string, User>& usuariosConfigurados);
 };
 
-#endif
+#endif // ADMINISTRATOR_HPP

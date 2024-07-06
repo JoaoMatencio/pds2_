@@ -1,0 +1,41 @@
+#include "login.hpp"
+#include "administrator.hpp"
+#include <iostream>
+
+std::string getUser() {
+    std::string nomeUsuario;
+    std::cout << "Entre com o nome de usuário que deseja logar: " << std::endl;
+    std::getline(std::cin, nomeUsuario);
+    return nomeUsuario;
+}
+
+std::string getSenha() {
+    std::string senhaUsuario;
+    std::cout << "Digite a sua senha para logar: " << std::endl;
+    std::cin >> senhaUsuario;
+    std::cin.ignore();
+    return senhaUsuario;
+}
+
+bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario) {
+    Administrator admin;
+    if (nomeUsuario == admin.get_Nome() && senhaUsuario == admin.get_Senha()) {
+        return true;
+    } else {
+        std::cout << "Senha do administrador incorreta." << std::endl;
+        return false;
+    }
+}
+
+int getOption() {
+    int idOpcao0;
+    std::cout << "Escolha uma das opções abaixo:\n"
+              << "1 - Criar novo usuário.\n"
+              << "2 - Editar usuário já existente.\n"
+              << "3 - Adicionar nova área.\n"
+              << "4 - Editar área existente.\n"
+              << "5 - Alterar credenciais do Administrador.\n";
+    std::cin >> idOpcao0;
+    std::cin.ignore();
+    return idOpcao0;
+}
