@@ -1,4 +1,6 @@
 #include "user.hpp"
+#include "area.hpp"
+#include <iostream>
 
 User::User(){
     usuario = " ";

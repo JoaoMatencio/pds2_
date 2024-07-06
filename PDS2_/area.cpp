@@ -1,4 +1,5 @@
 #include "area.hpp"
+#include "permission.hpp"
 
 
 std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
@@ -84,7 +85,7 @@ std::map<std::string, Permission&> Area::get_areasPermissoes(){
     return this -> areasPermissoes;
 }
 
-void adicionarNovaArea() {
+void Area::adicionarNovaArea() {
     Area a;
     std::string novaArea;
     std::cout << "Adicionar nova área: " << std::endl;
@@ -92,7 +93,7 @@ void adicionarNovaArea() {
     a.incluirAreaVector(novaArea);
 }
 
-void editarArea() {
+void Area::editarArea() {
     Area a;
     a.editarAreaVector();
 }
