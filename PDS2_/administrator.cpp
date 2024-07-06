@@ -19,9 +19,10 @@ void Administrator::set_Nome(std::string novoNome) {
     nomeAdmin = novoNome;
 }
 
-void Administrator::set_Senha(std::string senhaAtual, std::string novaSenha) {
-    if (senhaAtual == senhaAdmin) {
+void Administrator::set_Senha(std::string senhaAtual) {
+    if (senhaAdmin == senhaAtual) {
         std::cout << "Insira a nova senha: " << std::endl;
+        std::string novaSenha = " ";
         std::getline(std::cin, novaSenha);
         senhaAdmin = novaSenha;
         std::cout << "Senha alterada com sucesso." << std::endl;
@@ -39,14 +40,25 @@ void Administrator::set_Senha(std::string senhaAtual, std::string novaSenha) {
 
             std::getline(std::cin, senhaAtual);
 
-            if (senhaAtual == senhaAdmin) {
+            if (senhaAdmin == senhaAtual) {
                 std::cout << "Insira a nova senha: " << std::endl;
+                std::string novaSenha = " ";
                 std::getline(std::cin, novaSenha);
                 senhaAdmin = novaSenha;
                 std::cout << "Senha alterada com sucesso." << std::endl;
                 contador = 3;
             }
         }
+    }
+}
+
+bool Administrator::isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario) {
+
+    if (nomeUsuario == nomeAdmin && senhaUsuario == senhaAdmin) {
+        return true;
+    } else {
+        std::cout << "Senha do administrador incorreta." << std::endl;
+        return false;
     }
 }
 
@@ -111,6 +123,9 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
             std::cout << "Digite o novo nome para o usuário: " << std::endl;
             std::getline(std::cin, nomeUsuario);
             it->second.set_Nome(nomeUsuario);
+            usuariosConfigurados[nomeUsuario] = it -> second;
+            usuariosConfigurados.erase(it);
+
             break;
         }
         case 2: {
@@ -143,9 +158,9 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
 }
 
 void Administrator::alterarCredenciaisAdmin() {
-    std::string novoNome;
-    std::string senhaAtual;
-    std::string novaSenha;
+    std::string novoNome = " ";
+    std::string senhaAtual = " ";
+    std::string novaSenha = " ";
 
     std::cout << "Alterar nome do Administrador." << std::endl;
     std::cout << "Nome atual: " << get_Nome() << std::endl;
@@ -155,9 +170,8 @@ void Administrator::alterarCredenciaisAdmin() {
 
     std::cout << "Insira a senha atual do administrador: " << std::endl;
     std::getline(std::cin, senhaAtual);
-    std::cout << "Insira a nova senha do administrador: " << std::endl;
-    std::getline(std::cin, novaSenha);
-    set_Senha(senhaAtual, novaSenha);
+    set_Senha(senhaAtual);
+    
 }
 
 void Administrator::switchCaseAdmin(int idOpcao0, std::map<std::string, User>& usuariosConfigurados) {

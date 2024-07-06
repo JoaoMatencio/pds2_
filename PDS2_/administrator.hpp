@@ -15,7 +15,8 @@ public:
     std::string get_Nome();
     std::string get_Senha();
     void set_Nome(std::string novoNome);
-    void set_Senha(std::string senhaAtual, std::string novaSenha);
+    void set_Senha(std::string senhaAtual);
+    bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario);
     void imprimirUsuariosCadastrados(std::map<std::string, User>& usuariosConfigurados);
     void criarNovoUsuario(std::map<std::string, User>& usuariosConfigurados);
     int getOptions_2();

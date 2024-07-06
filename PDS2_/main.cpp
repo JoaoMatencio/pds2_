@@ -18,7 +18,7 @@ int main() {
         senhaUsuario = getSenha();
         
 
-        if (isAdmin(nomeUsuario, senhaUsuario)) {
+        if (admin.isAdmin(nomeUsuario, senhaUsuario)) {
             
             admin.switchCaseAdmin(getOption(), usuariosConfigurados);
         } 
@@ -29,6 +29,7 @@ int main() {
         
         else {
             stop = stopOrRepeat();
+            std::cin.ignore();
         }
     }
     return 0;

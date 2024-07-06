@@ -18,16 +18,6 @@ std::string getSenha() {
     return senhaUsuario;
 }
 
-bool isAdmin(const std::string& nomeUsuario, const std::string& senhaUsuario) {
-    Administrator admin;
-    if (nomeUsuario == admin.get_Nome() && senhaUsuario == admin.get_Senha()) {
-        return true;
-    } else {
-        std::cout << "Senha do administrador incorreta." << std::endl;
-        return false;
-    }
-}
-
 bool isUser(const std::string& nomeUsuario, const std::string& senhaUsuario){
     User user;
     if (user.get_Nome() == nomeUsuario && user.get_Senha() == senhaUsuario){
@@ -60,11 +50,11 @@ int getOptionUser() {
 }
 
 bool stopOrRepeat() {
-    std::cout << "Usuário não cadastrado." << std::endl;
-    std::cout << "Deseja tentar novamente? (s/n)" << std::endl;
+    std::cout << "Usuário inexistente ou senha incorreta." << std::endl;
+    std::cout << "Deseja tentar novamente? (S/N)" << std::endl;
     char resposta;
     std::cin >> resposta;
-    if (resposta == 'n') {
+    if (resposta == 'n' or resposta == 'N') {
         return true;
     }
     return false;
