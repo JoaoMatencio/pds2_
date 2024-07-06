@@ -1,4 +1,5 @@
 #include "administrator.hpp"
+#include "area.hpp"
 #include <iostream>
 
 Administrator::Administrator() {
