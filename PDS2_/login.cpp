@@ -38,7 +38,7 @@ bool findUser(const std::string& nomeUsuario, const std::string& senhaUsuario, s
     }
 }
 
-User& returnUser(std::string nomeUsuario, std::map<std::string, User> usuariosConfigurados){
+User& returnUser(const std::string& nomeUsuario, std::map<std::string, User>& usuariosConfigurados){
         std::map<std::string, User>::iterator it;
         it = usuariosConfigurados.find(nomeUsuario);
         return it -> second;
@@ -65,6 +65,14 @@ int getOptionUser() {
     std::cin >> idOpcao0;
     std::cin.ignore();
     return idOpcao0;
+}
+
+void imprimeUsuariosConfigurados(std::map<std::string, User>& usuariosConfigurados){
+    std::map<std::string, User>::iterator it;
+    int contador = 1;
+    for(it = usuariosConfigurados.begin(); it != usuariosConfigurados.end(); it++){
+        std::cout << contador << " - " << it -> first << std::endl;
+    }
 }
 
 bool stopOrRepeat() {

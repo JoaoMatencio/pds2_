@@ -4,11 +4,13 @@
 
 std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
 
-void Area::incluirAreaVector(std::string novaArea){
+void Area::incluirAreaVector(){
 
     std::cout << "Áreas já criadas: " << std::endl;
     imprimirNomeAreasVector();
     std::cout << "Insira o nome da nova área: " << std::endl;
+    std::string novaArea = " ";
+    std::getline(std::cin, novaArea);
     Area::nomeArea.push_back(novaArea);
 }
 
@@ -90,7 +92,6 @@ void Area::adicionarNovaArea() {
     std::string novaArea;
     std::cout << "Adicionar nova área: " << std::endl;
     std::getline(std::cin, novaArea);
-    a.incluirAreaVector(novaArea);
 }
 
 void Area::editarArea() {

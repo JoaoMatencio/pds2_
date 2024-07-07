@@ -52,13 +52,13 @@ void User::switchCaseUser(int idOpcao0){
     switch (idOpcao0) {
         case 1: {
             std::cout << "Áreas permitidas: " << std::endl;
-            _area.imprimirNomeAreasVector();
+            _area.imprimirAreas();
             break;
         }
         case 2: {
             std::string novaSenha;
             std::cout << "Digite a nova senha: " << std::endl;
-            std::cin >> novaSenha;
+            std::getline(std::cin, novaSenha);
             std::cin.ignore();
             senha = novaSenha;
             break;

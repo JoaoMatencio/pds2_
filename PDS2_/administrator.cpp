@@ -184,10 +184,10 @@ void Administrator::switchCaseAdmin(int idOpcao0, std::map<std::string, User>& u
             editarUsuario(usuariosConfigurados);
             break;
         case 3:
-            area.adicionarNovaArea();
+            area.incluirAreaVector();
             break;
         case 4:
-            area.editarArea();
+            area.editarAreaVector();
             break;
         case 5:
             alterarCredenciaisAdmin();

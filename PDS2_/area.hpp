@@ -13,7 +13,7 @@ private:
     static std::vector<std::string> nomeArea;
 
 public:
-    void incluirAreaVector(std::string novaArea);
+    void incluirAreaVector();
     void removerAreaVector();
     void editarAreaVector();
     void imprimirNomeAreasVector();

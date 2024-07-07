@@ -11,7 +11,8 @@ int getOption();
 int getOptionUser();
 bool noFindAdmin(const std::string& nomeUsuario, std::map<std::string, User>& usuariosConfigurados);
 bool findUser(const std::string& nomeUsuario, const std::string& senhaUsuario, std::map<std::string, User>& usuariosConfigurados);
-User& returnUser(std::string nomeUsuario, std::map<std::string, User> usuariosConfigurados);
+User& returnUser(const std::string& nomeUsuario, std::map<std::string, User>& usuariosConfigurados);
+void imprimeUsuariosConfigurados(std::map<std::string, User>& usuariosConfigurados);
 bool stopOrRepeat();
 
 #endif // LOGIN_HPP
