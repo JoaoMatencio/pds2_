@@ -13,7 +13,7 @@ private:
 
 public:
     User();
-    void criarUsuario(std::string, std::string);
+    void criarUsuario(std::string nomeUsuario, std::string senhaUsuario);
     void inserirPermissoes();
     std::string get_Nome();
     std::string get_Senha();

@@ -1,6 +1,5 @@
 #include "login.hpp"
 #include "administrator.hpp"
-#include "user.hpp"
 #include <iostream>
 
 std::string getUser() {
@@ -18,12 +17,31 @@ std::string getSenha() {
     return senhaUsuario;
 }
 
-bool isUser(const std::string& nomeUsuario, const std::string& senhaUsuario){
-    User user;
-    if (user.get_Nome() == nomeUsuario && user.get_Senha() == senhaUsuario){
+bool noFindAdmin(const std::string& nomeUsuario, std::map<std::string, User>& usuariosConfigurados){
+    std::map<std::string, User>::iterator it;
+    it = usuariosConfigurados.find(nomeUsuario);
+    if (it == usuariosConfigurados.end()){
         return true;
+    } else {
+        return false;
     }
-    return false;
+}
+
+bool findUser(const std::string& nomeUsuario, const std::string& senhaUsuario, std::map<std::string, User>& usuariosConfigurados){
+
+    std::map<std::string, User>::iterator it;
+    it = usuariosConfigurados.find(nomeUsuario);
+    if (it != usuariosConfigurados.end() && it -> second.get_Senha() == senhaUsuario){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+User& returnUser(std::string nomeUsuario, std::map<std::string, User> usuariosConfigurados){
+        std::map<std::string, User>::iterator it;
+        it = usuariosConfigurados.find(nomeUsuario);
+        return it -> second;
 }
 
 int getOption() {

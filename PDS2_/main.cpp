@@ -18,18 +18,23 @@ int main() {
         senhaUsuario = getSenha();
         
 
-        if (admin.isAdmin(nomeUsuario, senhaUsuario)) {
+        if (noFindAdmin(nomeUsuario, usuariosConfigurados) && admin.isAdmin(nomeUsuario, senhaUsuario)) {
             
             admin.switchCaseAdmin(getOption(), usuariosConfigurados);
-        } 
-        else if (isUser(nomeUsuario, senhaUsuario)) {
-            User user;
-            user.switchCaseUser(getOptionUser());
+
+        }
+
+        else if (findUser(nomeUsuario, senhaUsuario, usuariosConfigurados)) {
+
+            returnUser(nomeUsuario, usuariosConfigurados).switchCaseUser(getOptionUser());
+
         }
         
         else {
+
             stop = stopOrRepeat();
             std::cin.ignore();
+            
         }
     }
     return 0;
