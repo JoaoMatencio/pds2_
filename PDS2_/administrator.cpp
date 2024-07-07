@@ -113,7 +113,7 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
     std::cin >> idUsuario;
     std::cin.ignore();
 
-    auto it = usuariosConfigurados.begin();
+    std::map<std::string, User>::iterator it = usuariosConfigurados.begin();
     std::advance(it, idUsuario - 1);
 
     switch (idOpcao1) {
@@ -129,24 +129,27 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
             break;
         }
         case 2: {
-            std::string nomeArea;
-            int posicaoSelecionada;
+            std::string nomeArea = " ";
+            int posicaoSelecionada = 0;
+            Area a;
+            Permission p;
+            Date d;
 
             std::cout << "Adicionar nova área para o usuário " << it->first << "." << std::endl;
             it->second.get_Area().imprimirNomeAreasVector();
             std::cout << "Selecione a área que deseja configurar para o usuário." << std::endl;
             std::cin >> posicaoSelecionada;
-            std::cin.ignore();
-            Permission p;
+            p.inserirAutorizacao(d);
+
             it->second.get_Area().set_area(it->second.get_Area().retornaNomeAreaVector(posicaoSelecionada - 1), p);
+            std::cin.ignore();
             break;
         }
         case 3: {
-            int areaSelecionada;
-            it->second.get_Area().imprimirAreas();
+            int areaSelecionada = 0;
+            it -> second.get_Area().imprimirAreas();
             std::cout << "Seleciona a área que deseja editar as permissões: " << std::endl;
             std::cin >> areaSelecionada;
-            std::cin.ignore();
             it->second.get_Area().editarAutorizacoesArea(areaSelecionada);
             break;
         }

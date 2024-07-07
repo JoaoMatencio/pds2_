@@ -43,12 +43,13 @@ void Area::editarAreaVector(){
     imprimirNomeAreasVector();
     std::cin >> idArea;
     std::cout << "Digite o novo nome para a área: " << std::endl;
+    std::cin.ignore();
     std::getline(std::cin, Area::nomeArea[idArea]);
     std::cout << "Confirma o novo nome da área? " << Area::nomeArea[idArea] << std::endl;
     std::cout << "Digite S parar Sim ou N para Não:" << std::endl;
     std::cin >> confirmaNome;
     
-    while (confirmaNome == "N"){
+    while (confirmaNome == "N" or confirmaNome == "n"){
         std::cout << "Digite o novo nome para a área: " << std::endl;
         std::getline(std::cin, Area::nomeArea[idArea]);
         std::cout << "Confirma o novo nome da área? " << Area::nomeArea[idArea] << std::endl;
@@ -56,7 +57,8 @@ void Area::editarAreaVector(){
         std::cin >> confirmaNome;
     }
     
-    std::cout << "Novo nome salvo com sucesso.";
+    std::cout << "Novo nome salvo com sucesso." << std::endl;
+    std::cin.ignore();
 }
 
 std::string Area::atribuiAreaMap(int selecao){
@@ -64,7 +66,7 @@ std::string Area::atribuiAreaMap(int selecao){
 }
 
 void Area::set_area(std::string nomeArea, Permission& permissao){
-    areasPermissoes.insert(std::pair<std::string, Permission&> (nomeArea, permissao));
+    areasPermissoes.insert({nomeArea, permissao});
 }
 
 void Area::imprimirAreas(){
