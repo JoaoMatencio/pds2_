@@ -86,6 +86,7 @@ void Administrator::criarNovoUsuario(std::map<std::string, User>& usuariosConfig
         usuario.inserirPermissoes();
         usuariosConfigurados.insert({usuario.get_Nome(), usuario});
         std::cin.ignore();
+   
     } else {
         std::cout << "Nome de usuário já cadastrado." << std::endl;
     }
@@ -131,6 +132,7 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
         case 2: {
             std::string nomeArea = " ";
             int posicaoSelecionada = 0;
+            char selecao;
             Area a;
             Permission p;
             Date d;
@@ -142,15 +144,20 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
             p.inserirAutorizacao(d);
 
             it->second.get_Area().set_area(it->second.get_Area().retornaNomeAreaVector(posicaoSelecionada - 1), p);
+
+            std::cout << "Deseja alterar ou acrescentar mais autorizações para essa área? (S/N)" << std::endl;
+            std::cin.ignore();
+
+            std::cin >> selecao;
+            
+            if (selecao == 's' or selecao == 'S'){
+                it->second.get_Area().editarAutorizacoesArea();
+            }
             std::cin.ignore();
             break;
         }
         case 3: {
-            int areaSelecionada = 0;
-            it -> second.get_Area().imprimirAreas();
-            std::cout << "Seleciona a área que deseja editar as permissões: " << std::endl;
-            std::cin >> areaSelecionada;
-            it->second.get_Area().editarAutorizacoesArea(areaSelecionada);
+            it->second.get_Area().editarAutorizacoesArea();
             break;
         }
         case 4: {

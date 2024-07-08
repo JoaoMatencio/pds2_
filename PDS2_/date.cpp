@@ -14,7 +14,7 @@ autorizacaoCompleta& Date::get_aC(){
     return _aC;
 }
 
-void Date::set_aC(int selecionaPeriodo, int autorizacao){
+void Date::set_aC(int autorizacao, int selecionaPeriodo){
     
     switch(selecionaPeriodo){
         case 0:

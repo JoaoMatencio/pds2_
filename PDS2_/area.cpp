@@ -78,11 +78,15 @@ void Area::imprimirAreas(){
     }
 }
 
-void Area::editarAutorizacoesArea(int areaSelecionada){
+void Area::editarAutorizacoesArea(){
     std::map<std::string, Permission&>::iterator it;
+    int selecaoArea = 0;
+    std::cout << "Selecione a área desejada: " << std::endl;
     imprimirAreas();
-    std::advance(it, areaSelecionada - 1);
-    it -> second.alterarAutorizacao();
+    std::cin >> selecaoArea;
+    it = areasPermissoes.begin();
+    std::advance(it, selecaoArea - 1);
+    it -> second.alterarAcrescentarAutorizacao();
 }
 
 std::map<std::string, Permission&> Area::get_areasPermissoes(){

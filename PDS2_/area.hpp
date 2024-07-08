@@ -23,7 +23,7 @@ public:
     void adicionarNovaArea();
     void editarArea();
     void imprimirAreas();
-    void editarAutorizacoesArea(int areaSelecionada);
+    void editarAutorizacoesArea();
     std::map<std::string, Permission&> get_areasPermissoes();
 };
 

@@ -16,7 +16,7 @@ class Permission{
   public:
 
     void inserirAutorizacao(Date&);
-    void alterarAutorizacao();
+    void alterarAcrescentarAutorizacao();
     void imprimirAutorizacoes();
     std::string retornaAutorizacao(bool);
     void autorizaAcesso();
