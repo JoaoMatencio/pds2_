@@ -7,7 +7,7 @@ class User;
 
 void Permission::inserirAutorizacao(Date& d){
 
-  std::map<int, Date&>::iterator it;
+  std::map<int, Date>::iterator it;
   d.configuraAutorizacao();                                                    
   it = autorizacaoSemanal.find(d.get_aC().diaSemana);
   
@@ -20,8 +20,7 @@ void Permission::inserirAutorizacao(Date& d){
 }
 
 void Permission::alterarAcrescentarAutorizacao(){
-  std::map<int, Date&>::iterator it;
-  it = autorizacaoSemanal.begin();
+  std::map<int, Date>::iterator it;
   int numeroEscolhido;
   bool controle = true;
   char selecao;
@@ -36,9 +35,10 @@ void Permission::alterarAcrescentarAutorizacao(){
                 "5 = Quinta-feira \n"
                 "6 = Sexta-feira \n"
                 "7 = Sábado \n";
+
     std::cin >> numeroEscolhido;
     it = autorizacaoSemanal.find(numeroEscolhido);
-    
+
     if(it != autorizacaoSemanal.end()){
 
       std::cout << "Selecione entre as opções para alterar as permissões:\n"
@@ -65,6 +65,8 @@ void Permission::alterarAcrescentarAutorizacao(){
       std::cin >> autorizacao;
       it -> second.set_aC(autorizacao, 3);
 
+      std::cin.ignore();
+
       std::cout << "Deseja alterar ou acrescentar nova alteração? (S/N)" << std::endl;
       std::cin >> selecao;
 
@@ -75,25 +77,29 @@ void Permission::alterarAcrescentarAutorizacao(){
       }
 
     } else {
+
+      Date d;
       std::cout << "Selecione entre as opções para acrescentar as permissões:\n"
                   "0 = Permissão Negada\n"
                   "1 = Permissão Concedida\n";
       int autorizacao;
       std::cout << "Qual a autorização desejada para a madrugada (00:00 às 05:59): " << std::endl;
       std::cin >> autorizacao;
-      it -> second.set_aC(autorizacao, 0);
+      d.set_aC(autorizacao, 0);
 
       std::cout << "Qual a autorização desejada para a manhã (06:00 às 11:59): " << std::endl;
       std::cin >> autorizacao;
-      it -> second.set_aC(autorizacao, 1);
+      d.set_aC(autorizacao, 1);
 
       std::cout << "Qual a autorização desejada para a tarde (12:00 às 17:59): " << std::endl;
       std::cin >> autorizacao;
-      it -> second.set_aC(autorizacao, 2);
+      d.set_aC(autorizacao, 2);
 
       std::cout << "Qual a autorização desejada para a noite (18:00 às 23:59): " << std::endl;
       std::cin >> autorizacao;
-      it -> second.set_aC(autorizacao, 3);
+      d.set_aC(autorizacao, 3);
+
+      autorizacaoSemanal.insert({numeroEscolhido, d});
 
       std::cout << "Deseja alterar ou acrescentar nova alteração? (S/N)" << std::endl;
       std::cin >> selecao;
@@ -108,15 +114,14 @@ void Permission::alterarAcrescentarAutorizacao(){
 }
 
 void Permission::imprimirAutorizacoes(){
-  std::map<int, Date&>::iterator it;
-  for(it = autorizacaoSemanal.begin(); it != autorizacaoSemanal.end(); it++){
+  std::map<int, Date>::iterator it;
+it = autorizacaoSemanal.begin();
     std::cout << it -> first << ": " << std::endl;
     std::cout << "Madrugada: " << retornaAutorizacao(it -> second.get_aC().periodo.madrugada) << std::endl;
     std::cout << "Manha: " << retornaAutorizacao(it -> second.get_aC().periodo.manha) << std::endl;
     std::cout << "Tarde: " << retornaAutorizacao(it -> second.get_aC().periodo.tarde) << std::endl;
     std::cout << "Noite: " << retornaAutorizacao(it -> second.get_aC().periodo.noite) << std::endl;
   }
-}
 
 std::string Permission::retornaAutorizacao(bool autorizacao){
   switch(autorizacao){
@@ -136,7 +141,7 @@ void Permission::autorizaAcesso(){
 
     diaSemana = horaLocal -> tm_wday;
 
-    std::map<int, Date&>::iterator it;
+    std::map<int, Date>::iterator it;
 
     it = autorizacaoSemanal.find(diaSemana + 1);
     

@@ -60,7 +60,7 @@ int getOption() {
 int getOptionUser() {
     int idOpcao0;
     std::cout << "Escolha uma das opções abaixo:\n"
-              << "1 - Visualizar áreas permitidas.\n"
+              << "1 - Visualizar áreas permitidas e períodos autorizados.\n"
               << "2 - Alterar senha.\n";
     std::cin >> idOpcao0;
     std::cin.ignore();

@@ -9,7 +9,7 @@
 class Area {
 
 private:
-    std::map<std::string, Permission&> areasPermissoes;
+    std::map<std::string, Permission> areasPermissoes;
     static std::vector<std::string> nomeArea;
 
 public:
@@ -24,7 +24,7 @@ public:
     void editarArea();
     void imprimirAreas();
     void editarAutorizacoesArea();
-    std::map<std::string, Permission&> get_areasPermissoes();
+    std::map<std::string, Permission> get_areasPermissoes();
 };
 
 #endif // AREA_HPP

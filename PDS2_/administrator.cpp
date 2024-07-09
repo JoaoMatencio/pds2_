@@ -151,13 +151,13 @@ void Administrator::editarUsuario(std::map<std::string, User>& usuariosConfigura
             std::cin >> selecao;
             
             if (selecao == 's' or selecao == 'S'){
-                it->second.get_Area().editarAutorizacoesArea();
+                it -> second.get_Area().editarAutorizacoesArea();
             }
             std::cin.ignore();
             break;
         }
         case 3: {
-            it->second.get_Area().editarAutorizacoesArea();
+            it -> second.get_Area().editarAutorizacoesArea();
             break;
         }
         case 4: {

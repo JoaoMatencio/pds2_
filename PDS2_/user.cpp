@@ -48,11 +48,18 @@ void User::set_Nome(std::string nomeUsuario){
 
 void User::switchCaseUser(int idOpcao0){
     std::string senha;
-    Area _area;
     switch (idOpcao0) {
         case 1: {
+            std::map<std::string, Permission>::iterator it;
+            int selecao = 0;
             std::cout << "Áreas permitidas: " << std::endl;
             _area.imprimirAreas();
+            std::cout << "Selecione uma área para visualizar as suas permissões." << std::endl;
+            std::cin >> selecao;
+            it = _area.get_areasPermissoes().begin();
+            std::advance(it, selecao - 1);
+            it -> second.imprimirAutorizacoes();
+            std::cin.ignore();
             break;
         }
         case 2: {

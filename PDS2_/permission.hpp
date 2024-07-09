@@ -11,7 +11,7 @@ class Permission{
 
     //TAD que relaciona o dia da semana (tipo int) 
     //com a autorização para todos os períodos desse dia (tipo Date).
-    std::map<int, Date&> autorizacaoSemanal; 
+    std::map<int, Date> autorizacaoSemanal; 
   
   public:
 
