@@ -79,6 +79,7 @@ void Permission::alterarAcrescentarAutorizacao(){
     } else {
 
       Date d;
+      d.set_aC_diaSemana(numeroEscolhido);
       std::cout << "Selecione entre as opções para acrescentar as permissões:\n"
                   "0 = Permissão Negada\n"
                   "1 = Permissão Concedida\n";
@@ -115,13 +116,16 @@ void Permission::alterarAcrescentarAutorizacao(){
 
 void Permission::imprimirAutorizacoes(){
   std::map<int, Date>::iterator it;
-it = autorizacaoSemanal.begin();
+
+  for(it = autorizacaoSemanal.begin(); it != autorizacaoSemanal.end(); ++it){
     std::cout << it -> first << ": " << std::endl;
     std::cout << "Madrugada: " << retornaAutorizacao(it -> second.get_aC().periodo.madrugada) << std::endl;
     std::cout << "Manha: " << retornaAutorizacao(it -> second.get_aC().periodo.manha) << std::endl;
     std::cout << "Tarde: " << retornaAutorizacao(it -> second.get_aC().periodo.tarde) << std::endl;
     std::cout << "Noite: " << retornaAutorizacao(it -> second.get_aC().periodo.noite) << std::endl;
+    ++it;
   }
+}
 
 std::string Permission::retornaAutorizacao(bool autorizacao){
   switch(autorizacao){

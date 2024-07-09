@@ -12,6 +12,7 @@ int main() {
     Administrator admin;
 
     while (!stop) {
+
         std::string nomeUsuario = " ";
         std::string senhaUsuario = " ";
         nomeUsuario = getUser();

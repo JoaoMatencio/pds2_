@@ -14,6 +14,10 @@ autorizacaoCompleta& Date::get_aC(){
     return _aC;
 }
 
+void Date::set_aC_diaSemana(int numeroEscolhido){
+    _aC.diaSemana = numeroEscolhido;
+}
+
 void Date::set_aC(int autorizacao, int selecionaPeriodo){
     
     switch(selecionaPeriodo){

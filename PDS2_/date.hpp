@@ -29,6 +29,7 @@ class Date {
     public:
         Date();
         autorizacaoCompleta& get_aC();
+        void set_aC_diaSemana(int);
         void set_aC(int, int);
         void configuraAutorizacao();
 };
