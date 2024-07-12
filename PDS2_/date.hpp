@@ -22,8 +22,6 @@ typedef struct autorizacaoCompleta {
 class Date {
     private:
     
-        //Struct que contem os períodos de autorização
-        //para um determinado dia da semana.
         autorizacaoCompleta _aC;
 
     public:

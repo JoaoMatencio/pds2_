@@ -63,6 +63,23 @@ void User::switchCaseUser(int idOpcao0){
             break;
         }
         case 2: {
+            int i = 1;
+            int areaSelecionada = 0;
+            std::map<std::string, Permission>::iterator it;
+            std::map<std::string, Permission>::iterator it_2;
+            it = _area.get_areasPermissoes().begin();
+            std::cout << "Selecione a área que deseja acessar: " << std::endl;
+            for(it; it != _area.get_areasPermissoes().end(); it++){
+                std::cout << i << " - " << it -> first << std::endl;
+                i++;
+            }
+            std::cin >> areaSelecionada;
+            it_2 = _area.get_areasPermissoes().begin();
+            std::advance(it_2, areaSelecionada - 1);
+            it_2 -> second.autorizaAcesso();
+            
+        }
+        case 3: {
             std::string novaSenha;
             std::cout << "Digite a nova senha: " << std::endl;
             std::getline(std::cin, novaSenha);

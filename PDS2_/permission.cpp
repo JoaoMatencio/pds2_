@@ -117,13 +117,12 @@ void Permission::alterarAcrescentarAutorizacao(){
 void Permission::imprimirAutorizacoes(){
   std::map<int, Date>::iterator it;
 
-  for(it = autorizacaoSemanal.begin(); it != autorizacaoSemanal.end(); ++it){
+  for(it = autorizacaoSemanal.begin(); it != autorizacaoSemanal.end(); it++){
     std::cout << it -> first << ": " << std::endl;
     std::cout << "Madrugada: " << retornaAutorizacao(it -> second.get_aC().periodo.madrugada) << std::endl;
     std::cout << "Manha: " << retornaAutorizacao(it -> second.get_aC().periodo.manha) << std::endl;
     std::cout << "Tarde: " << retornaAutorizacao(it -> second.get_aC().periodo.tarde) << std::endl;
     std::cout << "Noite: " << retornaAutorizacao(it -> second.get_aC().periodo.noite) << std::endl;
-    ++it;
   }
 }
 
@@ -132,8 +131,9 @@ std::string Permission::retornaAutorizacao(bool autorizacao){
     case true:
       return "Autorizado.";
     case false:
-      return "Não autorizado";
-  }
+      return "Não autorizado.";
+      break;
+  };
 }
 
 void Permission::autorizaAcesso(){
@@ -149,22 +149,25 @@ void Permission::autorizaAcesso(){
 
     it = autorizacaoSemanal.find(diaSemana + 1);
     
-    if(horaLocal -> tm_hour >= 00 && horaLocal -> tm_hour < 06) {
-      mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
-      std::cout << mensagem << std::endl;
+    if(it != autorizacaoSemanal.end()){
+      if(horaLocal -> tm_hour >= 00 && horaLocal -> tm_hour < 06) {
+        mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
+        std::cout << mensagem << std::endl;
 
-    } else if (horaLocal -> tm_hour >= 06 && horaLocal -> tm_hour < 12) {
-      mensagem = retornaAutorizacao(it -> second.get_aC().periodo.manha);
-      std::cout << mensagem << std::endl;
+      } else if (horaLocal -> tm_hour >= 06 && horaLocal -> tm_hour < 12) {
+        mensagem = retornaAutorizacao(it -> second.get_aC().periodo.manha);
+        std::cout << mensagem << std::endl;
 
-    } else if (horaLocal -> tm_hour >= 12 && horaLocal -> tm_hour < 18) {
-      mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
-      std::cout << mensagem << std::endl;
+      } else if (horaLocal -> tm_hour >= 12 && horaLocal -> tm_hour < 18) {
+        mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
+        std::cout << mensagem << std::endl;
 
-    } else if (horaLocal -> tm_hour >= 18 && horaLocal -> tm_hour < 00) {
-      mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
-      std::cout << mensagem << std::endl;
-
+      } else if (horaLocal -> tm_hour >= 18 && horaLocal -> tm_hour < 00) {
+        mensagem = retornaAutorizacao(it -> second.get_aC().periodo.madrugada);
+        std::cout << mensagem << std::endl;
+      }
+    } else {
+      std::cout << "Nenhuma permissão foi encontrada para acesso a essa área." << std::endl;
     }
 
 }
