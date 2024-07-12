@@ -49,8 +49,8 @@ int getOption() {
     std::cout << "Escolha uma das opções abaixo:\n"
               << "1 - Criar novo usuário.\n"
               << "2 - Editar usuário já existente.\n"
-              << "3 - Adicionar nova área.\n"
-              << "4 - Editar área existente.\n"
+              << "3 - Adicionar nova área a lista de áreas do programa.\n"
+              << "4 - Editar área existente na lista de áreas do programa.\n"
               << "5 - Alterar credenciais do Administrador.\n";
     std::cin >> idOpcao0;
     std::cin.ignore();

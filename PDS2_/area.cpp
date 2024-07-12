@@ -5,13 +5,28 @@
 std::vector<std::string> Area::nomeArea = {"Jardim", "Piscina", "Área de Serviço", "Salão de Festas", "Cozinha", "Área Íntima", "Quarto do Pânico"};
 
 void Area::incluirAreaVector(){
+    bool adicionaNovaArea = true;
+    char escolha = ' ';
 
-    std::cout << "Áreas já criadas: " << std::endl;
-    imprimirNomeAreasVector();
-    std::cout << "Insira o nome da nova área: " << std::endl;
-    std::string novaArea = " ";
-    std::getline(std::cin, novaArea);
-    Area::nomeArea.push_back(novaArea);
+    while (adicionaNovaArea){
+
+        std::cout << "Áreas já criadas: " << std::endl;
+        imprimirNomeAreasVector();
+        std::cout << "Insira o nome da nova área: " << std::endl;
+        std::string novaArea = " ";
+        std::getline(std::cin, novaArea);
+        Area::nomeArea.push_back(novaArea);
+        std::cout << "Área adicionada com sucesso." << std::endl;
+        imprimirNomeAreasVector();
+        std::cout << "Deseja adicionar nova área ao programa? (S/N)" << std::endl;
+        std::cin >> escolha;
+        
+        if(escolha == 's' or escolha == 'S'){
+            adicionaNovaArea = true;
+        } else {
+            adicionaNovaArea = false;
+        }
+    }
 }
 
 void Area::removerAreaVector(){

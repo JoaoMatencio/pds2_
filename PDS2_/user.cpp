@@ -28,7 +28,7 @@ void User::inserirPermissoes(){
     if(escolha == 's' or escolha == 'S'){
         p.alterarAcrescentarAutorizacao();
     }
-    
+
     _area.set_area(_area.atribuiAreaMap(selecao), p);
 
 
