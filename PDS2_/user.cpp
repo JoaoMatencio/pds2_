@@ -11,7 +11,8 @@ void User::inserirPermissoes(){
     
     Permission p;
     int selecao;
-    
+    char escolha = ' ';
+
     std::cout << "Escolha a área a ser configurada para o usuário: " << std::endl;
     _area.imprimirNomeAreasVector();
     
@@ -21,7 +22,15 @@ void User::inserirPermissoes(){
 
     p.inserirAutorizacao(d);
 
-    _area.set_area(_area.atribuiAreaMap(selecao), p); //Insere os parâmetros configurados no map areasPermissoes.
+    std::cout << "Deseja alterar/atribuir mais autorizações? (S/N)" << std::endl;
+    std::cin >> escolha;
+
+    if(escolha == 's' or escolha == 'S'){
+        p.alterarAcrescentarAutorizacao();
+    }
+    
+    _area.set_area(_area.atribuiAreaMap(selecao), p);
+
 
 }
 

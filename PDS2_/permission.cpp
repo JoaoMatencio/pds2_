@@ -7,16 +7,9 @@ class User;
 
 void Permission::inserirAutorizacao(Date& d){
 
-  std::map<int, Date>::iterator it;
-  d.configuraAutorizacao();                                                    
-  it = autorizacaoSemanal.find(d.get_aC().diaSemana);
-  
-  if(it == autorizacaoSemanal.end()){
-    autorizacaoSemanal.insert(std::pair<int, Date&> (d.get_aC().diaSemana, d));
-  } else {
-    std::cout << "Autorização já inserida.\n"
-                "Escolha a opção \"Modificar autorização.\"" << std::endl; 
-  }
+  d.configuraAutorizacao();
+  autorizacaoSemanal.insert(std::pair<int, Date&> (d.get_aC().diaSemana, d));
+
 }
 
 void Permission::alterarAcrescentarAutorizacao(){
